@@ -5,7 +5,6 @@ import {
   RiLoader2Line,
 } from '@remixicon/react'
 import s from './style.module.css'
-import LogoSite from '@/app/components/base/logo/logo-site'
 import Switch from '@/app/components/base/switch'
 import Button from '@/app/components/base/button'
 import { MessageDotsCircle } from '@/app/components/base/icons/src/vender/solid/communication'
@@ -121,12 +120,7 @@ const CustomWebAppBrand = () => {
           {
             !webappBrandRemoved && (
               <div className='flex items-center text-[10px] font-medium text-gray-400'>
-                POWERED BY
-                {
-                  webappLogo
-                    ? <img src={`${webappLogo}?hash=${imgKey}`} alt='logo' className='ml-2 block w-auto h-5' />
-                    : <LogoSite className='ml-2 !h-5' />
-                }
+                POWERED BY YCC
               </div>
             )
           }
