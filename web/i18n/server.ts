@@ -1,6 +1,5 @@
 import { cookies, headers } from 'next/headers'
 import Negotiator from 'negotiator'
-import { match } from '@formatjs/intl-localematcher'
 
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
@@ -51,6 +50,6 @@ export const getLocaleOnServer = (): Locale => {
     languages = [i18n.defaultLocale]
 
   // match locale
-  const matchedLocale = match(languages, locales, i18n.defaultLocale) as Locale
-  return matchedLocale
+  // const matchedLocale = match(languages, locales, i18n.defaultLocale) as Locale
+  return i18n.defaultLocale
 }
