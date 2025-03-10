@@ -36,7 +36,7 @@ export const getLocaleOnServer = (): Locale => {
   let languages: string[] | undefined
   // get locale from cookie
   const localeCookie = cookies().get('locale')
-  languages = localeCookie?.value ? [localeCookie.value] : []
+  languages = localeCookie?.value ? [localeCookie.value] : ['zh-Hans']
 
   if (!languages.length) {
     // Negotiator expects plain object so we need to transform headers

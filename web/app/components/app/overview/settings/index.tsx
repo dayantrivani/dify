@@ -112,7 +112,7 @@ const SettingsModal: FC<ISettingsModalProps> = ({
 
   const { enableBilling, plan } = useProviderContext()
   const { setShowPricingModal, setShowAccountSettingModal } = useModalContext()
-  const isFreePlan = plan.type === 'sandbox'
+  const isFreePlan = false
   const handlePlanClick = useCallback(() => {
     if (isFreePlan)
       setShowPricingModal()
