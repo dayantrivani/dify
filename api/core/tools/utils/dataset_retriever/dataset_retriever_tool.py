@@ -86,6 +86,7 @@ class DatasetRetrieverTool(DatasetRetrieverBaseTool):
                         "position": position,
                         "dataset_id": item.metadata.get("dataset_id"),
                         "dataset_name": item.metadata.get("dataset_name"),
+                        "document_id": item.metadata.get("document_id") or item.metadata.get("title"),
                         "document_name": item.metadata.get("title"),
                         "data_source_type": "external",
                         "retriever_from": self.retriever_from,
@@ -93,7 +94,7 @@ class DatasetRetrieverTool(DatasetRetrieverBaseTool):
                         "title": item.metadata.get("title"),
                         "content": item.page_content,
                     }
-                context_list.append(source)
+                    context_list.append(source)
             for hit_callback in self.hit_callbacks:
                 hit_callback.return_retriever_resource_info(context_list)
 
@@ -172,7 +173,7 @@ class DatasetRetrieverTool(DatasetRetrieverBaseTool):
                                     "segment_id": segment.id,
                                     "retriever_from": self.retriever_from,
                                     "score": record.score or 0.0,
-                                    "doc_metadata": document.doc_metadat,  # type: ignore
+                                    "doc_metadata": document.doc_metadata,  # type: ignore
                                 }
 
                                 if self.retriever_from == "dev":

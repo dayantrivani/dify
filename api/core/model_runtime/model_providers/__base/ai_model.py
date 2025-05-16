@@ -1,8 +1,11 @@
 import decimal
+import hashlib
+from threading import Lock
 from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
+import contexts
 from core.model_runtime.entities.common_entities import I18nObject
 from core.model_runtime.entities.defaults import PARAMETER_RULE_TEMPLATE
 from core.model_runtime.entities.model_entities import (
@@ -23,7 +26,7 @@ from core.model_runtime.errors.invoke import (
 )
 from core.model_runtime.model_providers.__base.tokenizers.gpt2_tokenzier import GPT2Tokenizer
 from core.plugin.entities.plugin_daemon import PluginDaemonInnerError, PluginModelProviderEntity
-from core.plugin.manager.model import PluginModelManager
+from core.plugin.impl.model import PluginModelClient
 
 
 class AIModel(BaseModel):
@@ -77,7 +80,7 @@ class AIModel(BaseModel):
                         )
                     )
                 elif isinstance(invoke_error, InvokeError):
-                    return invoke_error(description=f"[{self.provider_name}] {invoke_error.description}, {str(error)}")
+                    return InvokeError(description=f"[{self.provider_name}] {invoke_error.description}, {str(error)}")
                 else:
                     return error
 
@@ -138,16 +141,36 @@ class AIModel(BaseModel):
         :param credentials: model credentials
         :return: model schema
         """
-        plugin_model_manager = PluginModelManager()
-        return plugin_model_manager.get_model_schema(
-            tenant_id=self.tenant_id,
-            user_id="unknown",
-            plugin_id=self.plugin_id,
-            provider=self.provider_name,
-            model_type=self.model_type.value,
-            model=model,
-            credentials=credentials or {},
-        )
+        plugin_model_manager = PluginModelClient()
+        cache_key = f"{self.tenant_id}:{self.plugin_id}:{self.provider_name}:{self.model_type.value}:{model}"
+        # sort credentials
+        sorted_credentials = sorted(credentials.items()) if credentials else []
+        cache_key += ":".join([hashlib.md5(f"{k}:{v}".encode()).hexdigest() for k, v in sorted_credentials])
+
+        try:
+            contexts.plugin_model_schemas.get()
+        except LookupError:
+            contexts.plugin_model_schemas.set({})
+            contexts.plugin_model_schema_lock.set(Lock())
+
+        with contexts.plugin_model_schema_lock.get():
+            if cache_key in contexts.plugin_model_schemas.get():
+                return contexts.plugin_model_schemas.get()[cache_key]
+
+            schema = plugin_model_manager.get_model_schema(
+                tenant_id=self.tenant_id,
+                user_id="unknown",
+                plugin_id=self.plugin_id,
+                provider=self.provider_name,
+                model_type=self.model_type.value,
+                model=model,
+                credentials=credentials or {},
+            )
+
+            if schema:
+                contexts.plugin_model_schemas.get()[cache_key] = schema
+
+            return schema
 
     def get_customizable_model_schema_from_credentials(self, model: str, credentials: dict) -> Optional[AIModelEntity]:
         """
@@ -157,14 +180,9 @@ class AIModel(BaseModel):
         :param credentials: model credentials
         :return: model schema
         """
-        return self._get_customizable_model_schema(model, credentials)
 
-    def _get_customizable_model_schema(self, model: str, credentials: dict) -> Optional[AIModelEntity]:
-        """
-        Get customizable model schema and fill in the template
-        """
+        # get customizable model schema
         schema = self.get_customizable_model_schema(model, credentials)
-
         if not schema:
             return None
 
