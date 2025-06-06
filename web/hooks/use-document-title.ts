@@ -10,11 +10,11 @@ export default function useDocumentTitle(title: string) {
   let favicon = ''
   if (isPending === false) {
     if (systemFeatures.branding.enabled) {
-      titleStr = `${prefix}${systemFeatures.branding.application_title}`
-      favicon = systemFeatures.branding.favicon
+      titleStr = `${prefix}YNCIC`
+      favicon = '/favicon.ico'
     }
     else {
-      titleStr = `${prefix}Dify`
+      titleStr = `${prefix}YNCIC`
       favicon = '/favicon.ico'
     }
   }
