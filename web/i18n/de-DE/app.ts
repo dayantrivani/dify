@@ -78,7 +78,7 @@ const translation = {
     optional: 'Wahlfrei',
     noTemplateFound: 'Keine Vorlagen gefunden',
     workflowUserDescription: 'Autonome KI-Arbeitsabläufe visuell per Drag-and-Drop erstellen.',
-    foundResults: '{{Anzahl}} Befund',
+    foundResults: '{{count}} Befund',
     chatbotShortDescription: 'LLM-basierter Chatbot mit einfacher Einrichtung',
     completionUserDescription: 'Erstellen Sie schnell einen KI-Assistenten für Textgenerierungsaufgaben mit einfacher Konfiguration.',
     noAppsFound: 'Keine Apps gefunden',
@@ -92,9 +92,10 @@ const translation = {
     noTemplateFoundTip: 'Versuchen Sie, mit verschiedenen Schlüsselwörtern zu suchen.',
     advancedUserDescription: 'Workflow mit Speicherfunktionen und Chatbot-Oberfläche.',
     chatbotUserDescription: 'Erstellen Sie schnell einen LLM-basierten Chatbot mit einfacher Konfiguration. Sie können später zu Chatflow wechseln.',
-    foundResult: '{{Anzahl}} Ergebnis',
+    foundResult: '{{count}} Ergebnis',
     agentUserDescription: 'Ein intelligenter Agent, der in der Lage ist, iteratives Denken zu führen und autonome Werkzeuge zu verwenden, um Aufgabenziele zu erreichen.',
     agentShortDescription: 'Intelligenter Agent mit logischem Denken und autonomer Werkzeugnutzung',
+    dropDSLToCreateApp: 'Ziehen Sie die DSL-Datei hierher, um die App zu erstellen',
   },
   editApp: 'App bearbeiten',
   editAppTitle: 'App-Informationen bearbeiten',
@@ -137,6 +138,14 @@ const translation = {
       notConfigured: 'Anbieter konfigurieren, um Nachverfolgung zu aktivieren',
       moreProvider: 'Weitere Anbieter',
     },
+    arize: {
+      title: 'Arize',
+      description: 'Unternehmensgerechte LLM-Observierbarkeit, Online- und Offline-Bewertung, Überwachung und Experimentierung—unterstützt durch OpenTelemetry. Speziell für LLM- und agentenbasierte Anwendungen entwickelt.',
+    },
+    phoenix: {
+      title: 'Phoenix',
+      description: 'Open-Source- und OpenTelemetry-basierte Plattform für Observierbarkeit, Bewertung, Prompt-Engineering und Experimentierung für Ihre LLM-Workflows und -Agenten.',
+    },
     langsmith: {
       title: 'LangSmith',
       description: 'Eine All-in-One-Entwicklerplattform für jeden Schritt des LLM-gesteuerten Anwendungslebenszyklus.',
@@ -164,6 +173,10 @@ const translation = {
     weave: {
       title: 'Weben',
       description: 'Weave ist eine Open-Source-Plattform zur Bewertung, Testung und Überwachung von LLM-Anwendungen.',
+    },
+    aliyun: {
+      title: 'Cloud-Monitor',
+      description: 'Die vollständig verwaltete und wartungsfreie Observability-Plattform von Alibaba Cloud ermöglicht eine sofortige Überwachung, Verfolgung und Bewertung von Dify-Anwendungen.',
     },
   },
   answerIcon: {
@@ -216,6 +229,45 @@ const translation = {
     moreFillTip: 'Maximal 10 Ebenen der Verschachtelung anzeigen',
     LLMResponse: 'LLM-Antwort',
   },
+  accessItemsDescription: {
+    anyone: 'Jeder kann auf die Webanwendung zugreifen.',
+    specific: 'Nur bestimmte Gruppen oder Mitglieder können auf die Webanwendung zugreifen.',
+    organization: 'Jeder in der Organisation kann auf die Webanwendung zugreifen.',
+    external: 'Nur authentifizierte externe Benutzer können auf die Webanwendung zugreifen.',
+  },
+  accessControlDialog: {
+    accessItems: {
+      anyone: 'Jeder mit dem Link',
+      specific: 'Spezifische Gruppen oder Mitglieder',
+      organization: 'Nur Mitglieder innerhalb des Unternehmens',
+      external: 'Authentifizierte externe Benutzer',
+    },
+    operateGroupAndMember: {
+      searchPlaceholder: 'Gruppen und Mitglieder suchen',
+      allMembers: 'Alle Mitglieder',
+      expand: 'Erweitern',
+      noResult: 'Kein Ergebnis',
+    },
+    title: 'Zugriffskontrolle für Webanwendungen',
+    description: 'Webanwendungszugriffsberechtigungen festlegen',
+    accessLabel: 'Wer hat Zugang',
+    groups_one: '{{count}} GRUPPE',
+    members_one: '{{count}} MITGLIED',
+    members_other: '{{count}} MITGLIEDER',
+    noGroupsOrMembers: 'Keine Gruppen oder Mitglieder ausgewählt',
+    webAppSSONotEnabledTip: 'Bitte kontaktieren Sie den Unternehmensadministrator, um die Authentifizierungsmethode der Webanwendung zu konfigurieren.',
+    updateSuccess: 'Erfolgreich aktualisiert',
+    groups_other: '{{count}} GRUPPEN',
+  },
+  publishApp: {
+    title: 'Wer kann auf die Webanwendung zugreifen?',
+    notSetDesc: 'Derzeit kann niemand auf die Webanwendung zugreifen. Bitte setzen Sie die Berechtigungen.',
+    notSet: 'Nicht festgelegt',
+  },
+  accessControl: 'Zugriffskontrolle für Webanwendungen',
+  noAccessPermission: 'Keine Berechtigung zum Zugriff auf die Webanwendung',
+  maxActiveRequests: 'Maximale gleichzeitige Anfragen',
+  maxActiveRequestsPlaceholder: 'Geben Sie 0 für unbegrenzt ein',
 }
 
 export default translation

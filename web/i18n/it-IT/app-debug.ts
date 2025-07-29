@@ -314,6 +314,7 @@ const translation = {
     'inputPlaceholder': 'Per favore inserisci',
     'content': 'Contenuto',
     'required': 'Richiesto',
+    'hide': 'Nascondi',
     'errorMsg': {
       varNameRequired: 'Il nome della variabile è richiesto',
       labelNameRequired: 'Il nome dell\'etichetta è richiesto',
@@ -321,6 +322,9 @@ const translation = {
       atLeastOneOption: 'È richiesta almeno un\'opzione',
       optionRepeat: 'Ci sono opzioni ripetute',
     },
+    'defaultValue': 'Valore predefinito',
+    'noDefaultValue': 'Nessun valore predefinito',
+    'selectDefaultValue': 'Seleziona valore predefinito',
   },
   vision: {
     name: 'Visione',
@@ -364,6 +368,7 @@ const translation = {
     placeholder:
       'Scrivi qui il tuo messaggio introduttivo, puoi usare variabili, prova a scrivere {{variable}}.',
     openingQuestion: 'Domande iniziali',
+    openingQuestionPlaceholder: 'Puoi usare variabili, prova a digitare {{variable}}.',
     noDataPlaceHolder:
       'Iniziare la conversazione con l\'utente può aiutare l\'IA a stabilire un legame più stretto con loro nelle applicazioni conversazionali.',
     varTip: 'Puoi usare variabili, prova a scrivere {{variable}}',

@@ -18,7 +18,8 @@ const translation = {
       addAnnotation: '注釈を追加',
       bulkImport: '一括インポート',
       bulkExport: '一括エクスポート',
-      clearAll: 'すべての注釈をクリア',
+      clearAll: 'すべて削除',
+      clearAllConfirm: 'すべての寸法を削除?',
     },
   },
   editModal: {
@@ -42,9 +43,9 @@ const translation = {
   },
   batchModal: {
     title: '一括インポート',
-    csvUploadTitle: 'CSVファイルをここにドラッグ＆ドロップするか、',
+    csvUploadTitle: 'CSV ファイルをここにドラッグ＆ドロップするか、',
     browse: '参照',
-    tip: 'CSVファイルは以下の構造に準拠する必要があります:',
+    tip: 'CSV ファイルは以下の構造に準拠する必要があります：',
     question: '質問',
     answer: '回答',
     contentTitle: 'チャンクの内容',

@@ -322,12 +322,16 @@ const translation = {
     'inputPlaceholder': 'Пожалуйста, введите',
     'content': 'Содержимое',
     'required': 'Обязательно',
+    'hide': 'Скрыть',
     'errorMsg': {
       labelNameRequired: 'Имя метки обязательно',
       varNameCanBeRepeat: 'Имя переменной не может повторяться',
       atLeastOneOption: 'Требуется хотя бы один вариант',
       optionRepeat: 'Есть повторяющиеся варианты',
     },
+    'defaultValue': 'Значение по умолчанию',
+    'noDefaultValue': 'Без значения по умолчанию',
+    'selectDefaultValue': 'Выберите значение по умолчанию',
   },
   vision: {
     name: 'Зрение',
@@ -369,6 +373,7 @@ const translation = {
     writeOpener: 'Написать начальное сообщение',
     placeholder: 'Напишите здесь свое начальное сообщение, вы можете использовать переменные, попробуйте ввести {{variable}}.',
     openingQuestion: 'Начальные вопросы',
+    openingQuestionPlaceholder: 'Вы можете использовать переменные, попробуйте ввести {{variable}}.',
     noDataPlaceHolder:
       'Начало разговора с пользователем может помочь ИИ установить более тесную связь с ним в диалоговых приложениях.',
     varTip: 'Вы можете использовать переменные, попробуйте ввести {{variable}}',

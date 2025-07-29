@@ -77,10 +77,10 @@ const translation = {
     appCreateDSLErrorPart1: 'تفاوت قابل توجهی در نسخه های DSL مشاهده شده است. اجبار به واردات ممکن است باعث اختلال در عملکرد برنامه شود.',
     appCreateDSLWarning: 'احتیاط: تفاوت نسخه DSL ممکن است بر ویژگی های خاصی تأثیر بگذارد',
     completionShortDescription: 'دستیار هوش مصنوعی برای تسک های تولید متن',
-    foundResult: '{{تعداد}} نتیجه',
+    foundResult: '{{count}} نتیجه',
     chatbotUserDescription: 'به سرعت یک چت بات مبتنی بر LLM با پیکربندی ساده بسازید. بعدا می توانید به Chatflow بروید.',
     chooseAppType: 'انتخاب نوع برنامه',
-    foundResults: '{{تعداد}} نتیجه',
+    foundResults: '{{count}} نتیجه',
     noIdeaTip: 'ایده ای ندارید؟ قالب های ما را بررسی کنید',
     forBeginners: 'انواع برنامه‌های پایه‌تر',
     noAppsFound: 'هیچ برنامه ای یافت نشد',
@@ -97,6 +97,7 @@ const translation = {
     completionUserDescription: 'به سرعت یک دستیار هوش مصنوعی برای وظایف تولید متن با پیکربندی ساده بسازید.',
     advancedShortDescription: 'گردش‌کار پیشرفته برای گفتگوهای چند مرحله‌ای',
     agentUserDescription: 'یک عامل هوشمند که قادر به استدلال تکراری و استفاده از ابزار مستقل برای دستیابی به اهداف وظیفه است.',
+    dropDSLToCreateApp: 'فایل DSL را اینجا رها کنید تا برنامه ساخته شود',
   },
   editApp: 'ویرایش اطلاعات',
   editAppTitle: 'ویرایش اطلاعات برنامه',
@@ -139,6 +140,14 @@ const translation = {
       notConfigured: 'برای فعال‌سازی ردیابی ارائه‌دهنده را پیکربندی کنید',
       moreProvider: 'ارائه‌دهندگان بیشتر',
     },
+    arize: {
+      title: 'Arize',
+      description: 'قابلیت مشاهده LLM در سطح سازمانی، ارزیابی آنلاین و آفلاین، نظارت و آزمایش — با پشتیبانی از OpenTelemetry. طراحی‌شده مخصوص برنامه‌های مبتنی بر LLM و عامل‌ها.',
+    },
+    phoenix: {
+      title: 'Phoenix',
+      description: 'پلتفرم متن‌باز و مبتنی بر OpenTelemetry برای مشاهده‌پذیری، ارزیابی، مهندسی پرامپت و آزمایش برای جریان‌های کاری و عامل‌های LLM شما.',
+    },
     langsmith: {
       title: 'LangSmith',
       description: 'یک پلتفرم همه‌کاره برای هر مرحله از چرخه عمر برنامه‌های مبتنی بر LLM.',
@@ -166,6 +175,10 @@ const translation = {
     weave: {
       title: 'بافندگی',
       description: 'ویو یک پلتفرم متن باز برای ارزیابی، آزمایش و نظارت بر برنامه‌های LLM است.',
+    },
+    aliyun: {
+      title: 'نظارت بر ابر',
+      description: 'پلتفرم مشاهده‌پذیری کاملاً مدیریت‌شده و بدون نیاز به نگهداری که توسط Alibaba Cloud ارائه شده، امکان نظارت، ردیابی و ارزیابی برنامه‌های Dify را به‌صورت آماده و با تنظیمات اولیه فراهم می‌کند.',
     },
   },
   answerIcon: {
@@ -209,6 +222,45 @@ const translation = {
     modelNotSupportedTip: 'مدل فعلی این ویژگی را پشتیبانی نمی‌کند و به‌طور خودکار به تزریق درخواست تنزل پیدا می‌کند.',
     structuredTip: 'خروجی‌های ساختاری یک ویژگی است که تضمین می‌کند مدل همیشه پاسخ‌هایی تولید می‌کند که به طرح JSON ارائه شده شما پایبند باشد.',
   },
+  accessItemsDescription: {
+    specific: 'فقط گروه‌ها یا اعضای خاصی می‌توانند به اپلیکیشن وب دسترسی پیدا کنند.',
+    anyone: 'هر کسی می‌تواند به وب‌اپلیکیشن دسترسی پیدا کند',
+    organization: 'هر کسی در سازمان می‌تواند به اپلیکیشن وب دسترسی پیدا کند.',
+    external: 'تنها کاربران خارجی تأیید شده می‌توانند به برنامه وب دسترسی پیدا کنند.',
+  },
+  accessControlDialog: {
+    accessItems: {
+      specific: 'گروه‌ها یا اعضای خاص',
+      organization: 'فقط اعضای داخل سازمان',
+      anyone: 'هر کسی که لینک را داشته باشد',
+      external: 'کاربران خارجی تأیید شده',
+    },
+    operateGroupAndMember: {
+      searchPlaceholder: 'گروه‌ها و اعضا را جستجو کنید',
+      allMembers: 'تمام اعضا',
+      noResult: 'نتیجه‌ای نیست',
+      expand: 'گسترش',
+    },
+    description: 'مجوزهای دسترسی به برنامه وب را تنظیم کنید',
+    accessLabel: 'چه کسی به آن دسترسی دارد',
+    groups_one: '{{count}} گروه',
+    groups_other: '{{count}} گروه',
+    members_one: '{{count}} عضو',
+    members_other: '{{count}} عضو',
+    noGroupsOrMembers: 'هیچ گروه یا عضوی انتخاب نشده است',
+    title: 'کنترل دسترسی به وب اپلیکیشن',
+    updateSuccess: 'به‌روز رسانی با موفقیت انجام شد',
+    webAppSSONotEnabledTip: 'لطفاً با مدیر شرکت تماس بگیرید تا روش احراز هویت برنامه وب را پیکربندی کند.',
+  },
+  publishApp: {
+    notSet: 'تنظیم نشده است',
+    notSetDesc: 'در حال حاضر هیچ‌کس نمی‌تواند به برنامه وب دسترسی پیدا کند. لطفاً مجوزها را تنظیم کنید.',
+    title: 'چه کسی می‌تواند به برنامه وب دسترسی داشته باشد؟',
+  },
+  accessControl: 'کنترل دسترسی به وب اپلیکیشن',
+  noAccessPermission: 'دسترسی به برنامه وب مجاز نیست',
+  maxActiveRequests: 'بیشترین درخواست‌های همزمان',
+  maxActiveRequestsPlaceholder: 'برای نامحدود، 0 را وارد کنید',
 }
 
 export default translation

@@ -285,6 +285,7 @@ const translation = {
     'labelName': 'Nume etichetă',
     'inputPlaceholder': 'Vă rugăm să introduceți',
     'required': 'Obligatoriu',
+    'hide': 'Ascundeți',
     'errorMsg': {
       varNameRequired: 'Numele variabilei este obligatoriu',
       labelNameRequired: 'Numele etichetei este obligatoriu',
@@ -292,6 +293,9 @@ const translation = {
       atLeastOneOption: 'Este necesară cel puțin o opțiune',
       optionRepeat: 'Există opțiuni repetate',
     },
+    'defaultValue': 'Valoare implicită',
+    'noDefaultValue': 'Fără valoare implicită',
+    'selectDefaultValue': 'Selectați valoarea implicită',
   },
   vision: {
     name: 'Viziune',

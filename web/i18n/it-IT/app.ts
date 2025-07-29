@@ -99,6 +99,7 @@ const translation = {
     agentUserDescription: 'Un agente intelligente in grado di ragionare in modo iterativo e di utilizzare autonomamente gli strumenti per raggiungere gli obiettivi del compito.',
     advancedShortDescription: 'Flusso di lavoro migliorato per conversazioni multiple',
     chooseAppType: 'Scegli un tipo di app',
+    dropDSLToCreateApp: 'Trascina il file DSL qui per creare l\'app',
   },
   editApp: 'Modifica Info',
   editAppTitle: 'Modifica Info App',
@@ -144,6 +145,14 @@ const translation = {
       notConfigured: 'Configura il provider per abilitare il tracciamento',
       moreProvider: 'Altri Provider',
     },
+    arize: {
+      title: 'Arize',
+      description: 'Osservabilità LLM di livello aziendale, valutazione online e offline, monitoraggio e sperimentazione—alimentata da OpenTelemetry. Progettata appositamente per applicazioni basate su LLM e agenti.',
+    },
+    phoenix: {
+      title: 'Phoenix',
+      description: 'Piattaforma open-source basata su OpenTelemetry per osservabilità, valutazione, ingegneria dei prompt e sperimentazione per i tuoi flussi di lavoro e agenti LLM.',
+    },
     langsmith: {
       title: 'LangSmith',
       description:
@@ -174,6 +183,10 @@ const translation = {
     weave: {
       title: 'Intrecciare',
       description: 'Weave è una piattaforma open-source per valutare, testare e monitorare le applicazioni LLM.',
+    },
+    aliyun: {
+      title: 'Monitoraggio Cloud',
+      description: 'La piattaforma di osservabilità completamente gestita e senza manutenzione fornita da Alibaba Cloud consente il monitoraggio, il tracciamento e la valutazione delle applicazioni Dify fin da subito.',
     },
   },
   answerIcon: {
@@ -219,7 +232,47 @@ const translation = {
     structuredTip: 'Le Uscite Strutturate sono una funzione che garantisce che il modello generi sempre risposte che aderiscano al tuo Schema JSON fornito.',
     notConfiguredTip: 'L\'output strutturato non è stato ancora configurato.',
     modelNotSupportedTip: 'Il modello attuale non supporta questa funzione e viene automaticamente downgradato a iniezione di prompt.',
+    required: 'Necessario',
   },
+  accessItemsDescription: {
+    anyone: 'Chiunque può accedere all\'app web',
+    specific: 'Solo gruppi o membri specifici possono accedere all\'app web.',
+    organization: 'Qualsiasi persona nell\'organizzazione può accedere all\'app web',
+    external: 'Solo gli utenti esterni autenticati possono accedere all\'applicazione Web',
+  },
+  accessControlDialog: {
+    accessItems: {
+      anyone: 'Chiunque con il link',
+      specific: 'Gruppi o membri specifici',
+      organization: 'Solo i membri all\'interno dell\'impresa',
+      external: 'Utenti esterni autenticati',
+    },
+    operateGroupAndMember: {
+      searchPlaceholder: 'Cerca gruppi e membri',
+      allMembers: 'Tutti i membri',
+      expand: 'Espandere',
+      noResult: 'Nessun risultato',
+    },
+    title: 'Controllo di accesso all\'app web',
+    description: 'Imposta le autorizzazioni di accesso all\'app web',
+    accessLabel: 'Chi ha accesso',
+    groups_one: '{{count}} GRUPPO',
+    groups_other: '{{count}} GRUPPI',
+    members_one: '{{count}} MEMBRO',
+    members_other: '{{count}} MEMBRI',
+    noGroupsOrMembers: 'Nessun gruppo o membro selezionato',
+    webAppSSONotEnabledTip: 'Si prega di contattare l\'amministratore dell\'impresa per configurare il metodo di autenticazione dell\'app web.',
+    updateSuccess: 'Aggiornamento avvenuto con successo',
+  },
+  publishApp: {
+    title: 'Chi può accedere all\'app web',
+    notSet: 'Non impostato',
+    notSetDesc: 'Attualmente nessuno può accedere all\'app web. Si prega di impostare i permessi.',
+  },
+  accessControl: 'Controllo di accesso all\'app web',
+  noAccessPermission: 'Nessun permesso per accedere all\'app web',
+  maxActiveRequestsPlaceholder: 'Inserisci 0 per illimitato',
+  maxActiveRequests: 'Massimo numero di richieste concorrenti',
 }
 
 export default translation
